@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light mb-3 p-1">
+
+
+	<a class="navbar-brand m-1" href="https://www.linkedin.com/in/venugopal-kulkarni-8a2545198/" target="_blank"  >  <img width="30" src="https://media.licdn.com/dms/image/D5635AQHr2oIiVi48TA/profile-framedphoto-shrink_100_100/0/1668322733858?e=1701687600&amp;v=beta&amp;t=cDn2DKKkSheSHDuoP1zQbl5SIPW5sOTbL3uhKiG2vEM" height="30"
+                                                                                                            alt="Venugopal Kulkarni" id="ember14" class="global-nav__me-photo evi-image ember-view"> </a>
+
+	<div class="collapse navbar-collapse">
+		<ul class="navbar-nav">
+		<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+			<li class="nav-item"><a class="nav-link" href="/goto-expense">Expenses</a></li>
+			<li class="nav-item"><a class="nav-link" href="/goto-budget">Budget</a></li>
+			<li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/venugopal-kulkarni-8a2545198/" target="_blank"  >Connect with us </a></li>
+		</ul>
+	</div>
+	<ul class="navbar-nav">
+		<li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+	</ul>
+</nav>
