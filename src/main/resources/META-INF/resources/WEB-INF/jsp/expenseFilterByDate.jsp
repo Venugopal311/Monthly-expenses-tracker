@@ -17,11 +17,8 @@
 
     <div class="container"
     <h1> Welcome To Expense Page ${name}</h1>
-    <div> Enter expenses for the  Date: ${localDate}</div>
-    <div> Budget : ${budget}</div>
     <div> Total :  ${total}</div>
-    <div> Safe To Spend : ${safeToSpend}  <p style="color:red;"> ${lessThan} </p>  </div>
-
+    <p style="color:red;"> ${errorMessage}  </p>
     <hr>
 
        <table class="table">
@@ -31,7 +28,6 @@
                <th> Name</th>
                <th> Price</th>
                <th> Quantity</th>
-               <th> Date</th>
                <th> </th>
                <th> </th>
 
@@ -48,7 +44,6 @@
                    <td>${item.name}</td>
                    <td>${item.price}</td>
                    <td>${item.quantity}</td>
-                   <td>${item.localDate}</td>
                    <td> <a href="delete-item?serialNo=${item.serialNo}&price=${item.price}" class="btn btn-warning"> delete</a> </td>
                    <td> <a href="update-item?serialNo=${item.serialNo}" class="btn btn-success"> update</a> </td>
 
@@ -58,8 +53,6 @@
 
 
        </table>
-         <a href="add-expense" class="btn btn-success"> Add expense </a>
-         <a href="filter-by-date" class="btn btn-success"> Filter By Date</a>
                 <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
              <script src="webjars/jquery/3.6.0/jquery.min.js"></script>
 

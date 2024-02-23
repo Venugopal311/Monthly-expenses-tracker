@@ -56,7 +56,7 @@ public class ItemController {
     @RequestMapping(value="/add-expense",method = RequestMethod.GET)
     public String showAddExpensePage(ModelMap model){
         String username= getLoggedInUsername(model);
-        Item item=new Item(username,0,"",0,LocalDate.now(),0);
+        Item item=new Item(username,0,"",0,LocalDate.now(),1);
 
         model.put("item",item);
         return "expense-add";
@@ -127,9 +127,7 @@ public class ItemController {
 
     @RequestMapping(value = "filter-by-date",method = RequestMethod.POST)
     public String ShowFilterByDatePage(@RequestParam LocalDate localDate,ModelMap model) {
-        List<Item> items=itemList.filterByDate(localDate);
-
-        String userName=getLoggedInUsername(model);
+        List<Item> items=itemList.filterByDate(localDate, getLoggedInUsername(model));
         model.addAttribute("items",items);
         model.put("total",itemList.getTotal(items));
         if(items.isEmpty()){

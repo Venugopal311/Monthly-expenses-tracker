@@ -22,8 +22,8 @@ public class ItemList {
 
 
     static {
-        items.add(new Item("venugopal",itemCount++,"Dosa",40, LocalDate.now(),1));
-        items.add(new Item("venugopal",itemCount++,"Pani puri",25,LocalDate.now(),1));
+        items.add(new Item("Venugopal",itemCount++,"Dosa",40, LocalDate.now(),1));
+        items.add(new Item("Venugopal",itemCount++,"Pani puri",25,LocalDate.now(),1));
     }
 
 
@@ -33,18 +33,12 @@ public class ItemList {
 
             items.add(new Item(username,itemCount++,name,price,localDate,quantity));
             total=getTotal(username);
-
-
     }
 
     public double getTotal(String username){
         Predicate<Item> predicate=item -> item.getUsername().equalsIgnoreCase(username);
         List<Item> itemList=items.stream().filter(predicate).toList();
-        total=0;
-        for(Item item:itemList)
-            total+=item.getPrice()*item.getQuantity();
-
-        return total;
+       return getTotal(itemList);
     }
 
     public double getSafeToSpend(String username,double price){
@@ -54,7 +48,7 @@ public class ItemList {
 
 
     public void removeItem(String name,double price,int quantity){
-        items.remove(new Item("venugopal",itemCount++,name,price,LocalDate.now(),quantity));
+        items.remove(new Item("Venugopal",itemCount++,name,price,LocalDate.now(),quantity));
     }
 
 
@@ -69,8 +63,6 @@ public class ItemList {
     public void deleteBySerialNo(String username,int serialNo) {
       boolean b=items.remove(findBySerialNo(serialNo));
       total=getTotal(username);
-    //    System.out.println("In deleteBySerialNo is "+price+" total"+total);
-
     }
 
 
@@ -96,18 +88,18 @@ public class ItemList {
     }
 
 
-    public List<Item> filterByDate(LocalDate localDate) {
+    public List<Item> filterByDate(LocalDate localDate,String userName) {
         List<Item> list=new ArrayList<>();
-        Predicate<Item> itemPredicate=item->item.getLocalDate().equals(localDate);
+        Predicate<Item> itemPredicate=item->item.getLocalDate().equals(localDate) && item.getUsername().equalsIgnoreCase(userName);
         list=items.stream().filter(itemPredicate).toList();
 
         return list;
     }
 
     public double getTotal(List<Item> items){
-        double total=0;
+        total=0;
         for(Item item:items){
-            total+=item.getPrice();
+            total+=item.getPrice()*item.getQuantity();
         }
         return total;
     }
