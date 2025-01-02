@@ -8,9 +8,11 @@ import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 
-
+@Entity
 public class Item {
 
+    @Id
+    @GeneratedValue
     private int serialNo;
     @Size(min = 3,message = "Enter atleast 3 characters")
     private String name;
@@ -23,6 +25,10 @@ public class Item {
 
     @Positive(message = "please enter positive number")
     private int quantity;
+
+    public Item(){
+
+    }
 
     public Item(String username, int serialNo, String name, double price, LocalDate localDate,int quantity){
         this.username=username;

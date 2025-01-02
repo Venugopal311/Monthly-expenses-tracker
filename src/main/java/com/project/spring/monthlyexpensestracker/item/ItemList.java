@@ -89,7 +89,7 @@ public class ItemList {
 
 
     public List<Item> filterByDate(LocalDate localDate,String userName) {
-        List<Item> list=new ArrayList<>();
+        List<Item> list;
         Predicate<Item> itemPredicate=item->item.getLocalDate().equals(localDate) && item.getUsername().equalsIgnoreCase(userName);
         list=items.stream().filter(itemPredicate).toList();
 

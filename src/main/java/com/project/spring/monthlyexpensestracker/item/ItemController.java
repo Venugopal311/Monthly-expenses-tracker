@@ -19,8 +19,7 @@ import java.util.Comparator;
 import java.util.List;
 
 
-@Controller
-@SessionAttributes({"budget","name"})
+
 public class ItemController {
 
     private ItemList itemList;
